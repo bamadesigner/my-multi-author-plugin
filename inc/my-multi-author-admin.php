@@ -68,7 +68,7 @@ class My_Multi_Author_Admin {
 	 * @return  void
 	 */
 	public function remove_author_meta_box() {
-		remove_meta_box( 'authordiv', my_multi_author()->multi_author_post_types, 'normal' );
+		remove_meta_box( 'authordiv', my_multi_author()->get_multi_author_post_types(), 'normal' );
 	}
 
 	/**
@@ -82,7 +82,7 @@ class My_Multi_Author_Admin {
 	public function add_meta_boxes( $post_type, $post ) {
 
 		// Add our custom author meta box.
-		add_meta_box( 'my-multi-author-authors-mb', __( 'Author(s)', 'my-multi-author' ), array( $this, 'print_author_meta_box' ), my_multi_author()->multi_author_post_types, 'normal', 'high' );
+		add_meta_box( 'my-multi-author-authors-mb', __( 'Author(s)', 'my-multi-author' ), array( $this, 'print_author_meta_box' ), my_multi_author()->get_multi_author_post_types(), 'normal', 'high' );
 
 	}
 
@@ -102,7 +102,7 @@ class My_Multi_Author_Admin {
 		}
 
 		// Only for our post types.
-		if ( ! in_array( $post_type, my_multi_author()->multi_author_post_types ) ) {
+		if ( ! in_array( $post_type, my_multi_author()->get_multi_author_post_types() ) ) {
 			return;
 		}
 
@@ -226,7 +226,7 @@ class My_Multi_Author_Admin {
 		}
 
 		// Only for certain post types.
-		if ( ! in_array( $post->post_type, my_multi_author()->multi_author_post_types ) ) {
+		if ( ! in_array( $post->post_type, my_multi_author()->get_multi_author_post_types() ) ) {
 			return;
 		}
 
@@ -323,7 +323,7 @@ class My_Multi_Author_Admin {
 	public function add_posts_columns( $columns, $post_type ) {
 
 		// Only for these post types.
-		if ( ! in_array( $post_type, my_multi_author()->multi_author_post_types ) ) {
+		if ( ! in_array( $post_type, my_multi_author()->get_multi_author_post_types() ) ) {
 			return $columns;
 		}
 

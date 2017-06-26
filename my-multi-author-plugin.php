@@ -35,10 +35,13 @@ class My_Multi_Author {
 	 * Defines which post
 	 * types to assign multi authors.
 	 *
-	 * @access  public
+	 * Access via get_multi_author_post_types()
+	 * inside this class.
+	 *
+	 * @access  private
 	 * @var     array
 	 */
-	public $multi_author_post_types = array( 'post', 'podcast', 'video' );
+	private $multi_author_post_types;
 
 	/**
 	 * Defines the meta key for the
@@ -125,6 +128,32 @@ class My_Multi_Author {
 	 */
 	public function textdomain() {
 		load_plugin_textdomain( 'my-multi-author', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	}
+
+	/**
+	 * Get the post types we want to
+	 * set as multi author.
+	 *
+	 * @access  public
+	 * @return  array - the post types.
+	 */
+	public function get_multi_author_post_types() {
+
+		// If set, return the settings
+		if ( isset( $this->multi_author_post_types ) ) {
+			return $this->multi_author_post_types;
+		}
+
+		// Define the post types. 'post' is the default.
+		$multi_author_post_types = apply_filters( 'my_multi_author_post_types', array( 'post' ) );
+
+		// Make sure it's an array.
+		if ( ! is_array( $multi_author_post_types ) ) {
+			$multi_author_post_types = explode( ',', str_replace( ' ', '', $multi_author_post_types ) );
+		}
+
+		// Set/return post types.
+		return $this->multi_author_post_types = $multi_author_post_types;
 	}
 
 	/**
