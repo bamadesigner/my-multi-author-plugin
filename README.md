@@ -11,18 +11,18 @@ WordPress plugin that allows you to attribute multiple authors to single post.
 ### Filters
 
 #### 'my_multi_author_post_types'
-Parameter: $post_types, array, default: array( 'post' ).
+* Parameter: $post_types (array) - the default is `array( 'post' )`.
 
-*Allows you to filter the post types that use multi author. 'post' is the default.*
+*Allows you to filter the post types that use multi author. The only post type set by default is `post`.*
 
 #### 'my_multi_authors'
-Parameter: $authors, array, default: array of the assigned multi author IDs.
-Parameter: $post_id, int, default: the post ID.
+* Parameter: $authors (array) - the assigned multi author IDs.
+* Parameter: $post_id (int) - the post ID.
 
-*Allows you to filter the multi authors for a specific post. Only deals with author IDs.*
+*Allows you to filter the multi authors for a specific post. Only deals with author IDs. The default is an array of the assigned multi author IDs.*
 
 #### 'my_multi_author_post_author_dropdown_args'
-Parameter: $args, array, default: the default arguments
-Parameter: $post, object, default: the post object.
+* Parameter: $args (array) - the default arguments.
+* Parameter: $post (object) - the post object.
 
-*Allows you to customize the multi author user dropdown in the admin that populates the list of authors to be selected as a multi author.*
+*Allows you to customize the multi author user dropdown in the admin that populates the list of authors to be selected as a multi author. The default is an array of the default arguments.*
