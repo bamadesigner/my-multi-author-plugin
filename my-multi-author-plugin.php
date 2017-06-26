@@ -193,7 +193,7 @@ class My_Multi_Author {
 		}
 
 		// Filter the author IDs.
-		$authors = apply_filters( 'my_multi_author_ids', $authors, $post_id );
+		$authors = apply_filters( 'my_multi_authors', $authors, $post_id );
 
 		// Make sure it has only IDs.
 		$authors = array_filter( $authors, 'is_numeric' );
