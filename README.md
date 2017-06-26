@@ -2,6 +2,10 @@
 
 WordPress plugin that allows you to attribute multiple authors to single post.
 
+## Roadmap
+
+* `select2` is not accessible so will remove as soon as I find an accessible alternative.
+
 ## Setup
 
 **Right now, the plugin does not have a settings page so, if you'd like to use the multi author functionality on a post type other than "post", you will have to use the "my_multi_author_post_types" filter.**
