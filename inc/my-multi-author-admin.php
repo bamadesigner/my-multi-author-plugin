@@ -11,6 +11,7 @@ class My_Multi_Author_Admin {
 	/**
 	 * Holds the class instance.
 	 *
+	 * @since   1.0.0
 	 * @access  private
 	 * @var     My_Multi_Author_Admin
 	 */
@@ -19,6 +20,7 @@ class My_Multi_Author_Admin {
 	/**
 	 * Returns the instance of this class.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @return  My_Multi_Author_Admin
 	 */
@@ -36,6 +38,7 @@ class My_Multi_Author_Admin {
 	 * The constructor is protected to prevent
 	 * creating a new instance from outside of this class.
 	 *
+	 * @since   1.0.0
 	 * @access  protected
 	 */
 	protected function __construct() {
@@ -64,6 +67,7 @@ class My_Multi_Author_Admin {
 	 * Removes the default author meta box so
 	 * we can replace with our custom meta box.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @return  void
 	 */
@@ -74,6 +78,7 @@ class My_Multi_Author_Admin {
 	/**
 	 * Adds our custom meta boxes.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @param   $post_type - string - the current post type.
 	 * @param   $post - WP_Post - the current post object.
@@ -89,6 +94,7 @@ class My_Multi_Author_Admin {
 	/**
 	 * Enqueue the styles and scripts for the admin.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @param   $hook_suffix - string - ID for the current page.
 	 * @return  void
@@ -123,6 +129,7 @@ class My_Multi_Author_Admin {
 	/**
 	 * Prints our custom author meta box.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @param   $post - WP_Post - the current post object.
 	 * @return  void
@@ -207,13 +214,14 @@ class My_Multi_Author_Admin {
 	/**
 	 * When the post is saved, saves our custom meta box data.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @param   int - $post_id - the ID of the post being saved
 	 * @param   WP_Post - $post - the post object
 	 * @param   bool - $update - whether this is an existing post being updated or not
 	 * @return  void
 	 */
-	function save_meta_box_data( $post_id, $post, $update ) {
+	public function save_meta_box_data( $post_id, $post, $update ) {
 
 		// Disregard on autosave.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -315,6 +323,7 @@ class My_Multi_Author_Admin {
 	/**
 	 * Add custom admin columns.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @param   $columns - array - An array of column names.
 	 * @param   $post_type - string - The post type slug.
@@ -350,6 +359,7 @@ class My_Multi_Author_Admin {
 	/**
 	 * Populate our custom admin columns.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @param   $column - string - The name of the column to display.
 	 * @param   $post_id - int - The current post ID.
@@ -396,6 +406,7 @@ class My_Multi_Author_Admin {
  * class to retrieve data throughout the plugin
  * and other plugins and themes.
  *
+ * @since   1.0.0
  * @return object - My_Multi_Author_Admin
  */
 function my_multi_author_admin() {

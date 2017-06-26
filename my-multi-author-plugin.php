@@ -38,6 +38,7 @@ class My_Multi_Author {
 	 * Access via get_multi_author_post_types()
 	 * inside this class.
 	 *
+	 * @since   1.0.0
 	 * @access  private
 	 * @var     array
 	 */
@@ -47,6 +48,7 @@ class My_Multi_Author {
 	 * Defines the meta key for the
 	 * multi author authors.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @var     string
 	 */
@@ -61,6 +63,7 @@ class My_Multi_Author {
 	 * to the main plugin directory.
 	 * Used for loading assets.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @var     string
 	 */
@@ -70,6 +73,7 @@ class My_Multi_Author {
 	/**
 	 * Holds the class instance.
 	 *
+	 * @since   1.0.0
 	 * @access  private
 	 * @var     My_Multi_Author
 	 */
@@ -78,6 +82,7 @@ class My_Multi_Author {
 	/**
 	 * Returns the instance of this class.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @return  My_Multi_Author
 	 */
@@ -95,6 +100,7 @@ class My_Multi_Author {
 	 * The constructor is protected to prevent
 	 * creating a new instance from outside of this class.
 	 *
+	 * @since   1.0.0
 	 * @access  protected
 	 */
 	protected function __construct() {
@@ -123,6 +129,7 @@ class My_Multi_Author {
 	/**
 	 * Loads the plugin's text domain.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @return  void
 	 */
@@ -134,6 +141,7 @@ class My_Multi_Author {
 	 * Get the post types we want to
 	 * set as multi author.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @return  array - the post types.
 	 */
@@ -161,6 +169,7 @@ class My_Multi_Author {
 	 * Takes on array of author ID's
 	 * Returns array of author objects, alphabetized by author last name
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @param   $post_id - int - the post ID.
 	 * @return  array - author information.
@@ -212,6 +221,7 @@ class My_Multi_Author {
 	 * for a specified post, or the current post,
 	 * with links to the author's archive.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @param   $post_id - int - the post ID, current post otherwise.
 	 * @return  string - the HTML list of authors.
@@ -251,6 +261,7 @@ class My_Multi_Author {
 	 * Fires after the WP_User_Query has been parsed, and before
 	 * the query is executed.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @param   $query - WP_User_Query - The current WP_User_Query instance, passed by reference.
 	 */
@@ -275,6 +286,7 @@ class My_Multi_Author {
 	 * make sure you retrieve posts where they
 	 * are assigned as a multi author.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @param   $pieces - array - The pieces of the query.
 	 * @param   $query - WP_Query - The WP_Query instance (passed by reference).
@@ -334,6 +346,7 @@ class My_Multi_Author {
 	 * to set the post author data to the
 	 * author being queried.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @param   $post - WP_Post - The Post object (passed by reference).
 	 * @param   $query - WP_Query - The current Query object (passed by reference).
@@ -359,6 +372,7 @@ class My_Multi_Author {
 	/**
 	 * Filters the display name of the current post's author.
 	 *
+	 * @since   1.0.0
 	 * @access  public
 	 * @param   $author - string - The author's display name.
 	 * @return  string - the filtered author name.
@@ -391,6 +405,7 @@ class My_Multi_Author {
  * class to retrieve data throughout the plugin
  * and other plugins and themes.
  *
+ * @since   1.0.0
  * @return object - My_Multi_Author
  */
 function my_multi_author() {
