@@ -1,0 +1,54 @@
+$author-delete-width: 25px;
+
+#my-multi-author-authors-mb {
+
+	.inside {
+		margin-top: -5px;
+		padding: 0 1.3em;
+	}
+
+	select,
+	.select2-container {
+		width: 100%;
+	}
+
+	p {
+		margin: 1.5em 0 0.8em;
+	}
+}
+
+#my-multi-authors-select {
+
+	.my-multi-authors-author {
+		margin: 1em 0 0 0;
+		padding: 0 0 0 $author-delete-width;
+		position: relative;
+
+		.my-multi-authors-author-delete {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: $author-delete-width;
+			height: 100%;
+			cursor: pointer;
+			color: red;
+			font-weight: bold;
+			
+			&:before {
+				content: 'X';
+				position: absolute;
+				left: 5px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
+
+#my-multi-authors-add-author {
+	margin: 1.8em 0;
+}
