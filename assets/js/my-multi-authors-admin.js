@@ -39,7 +39,13 @@
 
 		// Empty the select.
 		var $new_author_autocomplete = $new_author.find( 'select.my-multi-authors-autocomplete' );
-		$new_author_autocomplete.select2( 'destroy' ).show();
+
+		// Destroy the select2.
+		if ( $new_author_autocomplete.data( 'select2' ) ) {
+			$new_author_autocomplete.select2( 'destroy' );
+		}
+
+		// Clear out the selection.
 		$new_author_autocomplete.children( 'option:selected' ).prop( 'selected', false );
 
 		// Replace select2 with select.
@@ -76,16 +82,16 @@
 		var autocomplete_id = 'my-multi-authors-autocomplete' + index;
 		$author_autocomplete.attr( 'id', autocomplete_id );
 
-		// Enable select2.
-		if ( typeof $author_autocomplete.select2 == 'function' ) {
-			$author_autocomplete.select2();
-		}
-
 		// Setup delete.
 		$author_delete.on( 'click', function(e) {
 			e.preventDefault();
 			$( this ).closest( '.my-multi-authors-author' ).my_multi_authors_delete_author();
 		});
+
+		// Enable select2.
+		if ( typeof $author_autocomplete.select2 == 'function' ) {
+			$author_autocomplete.select2();
+		}
 	};
 
 	// Handle author delete.
