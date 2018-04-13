@@ -241,7 +241,7 @@ class My_Multi_Author {
 			$authors_list = array();
 
 			// Add each author.
-			foreach( $authors as $author_id ) :
+			foreach ( $authors as $author_id ) :
 				$authors_list[] = '<a href="' . esc_url( get_author_posts_url( $author_id ) ) . '">' . get_the_author_meta( 'display_name', $author_id ) . '</a>';
 			endforeach;
 
@@ -311,7 +311,7 @@ class My_Multi_Author {
 			}
 
 			// Add a LEFT JOIN to get multi author post meta.
-			$pieces['join'] .= $wpdb->prepare( " LEFT JOIN {$wpdb->postmeta} mameta ON mameta.post_id = {$wpdb->posts}.ID AND mameta.meta_key = %s AND mameta.meta_value IN (" . implode( ',', $get_author_id_array ) . ")", $this->multi_author_meta_key );
+			$pieces['join'] .= $wpdb->prepare( " LEFT JOIN {$wpdb->postmeta} mameta ON mameta.post_id = {$wpdb->posts}.ID AND mameta.meta_key = %s AND mameta.meta_value IN (" . implode( ',', $get_author_id_array ) . ')', $this->multi_author_meta_key );
 
 			/*
 			 * Add to where to get posts from post meta.
@@ -327,7 +327,7 @@ class My_Multi_Author {
 			} else {
 
 				// Check another post author request.
-				$post_author_where2 = "{$wpdb->posts}.post_author IN (" . implode( ',', $get_author_id_array ) . ")";
+				$post_author_where2 = "{$wpdb->posts}.post_author IN (" . implode( ',', $get_author_id_array ) . ')';
 				if ( false !== strpos( $pieces['where'], $post_author_where2 ) ) {
 					$pieces['where'] = str_replace( $post_author_where2, "( {$post_author_where2} OR mameta.post_id IS NOT NULL )", $pieces['where'] );
 				} else {

@@ -188,7 +188,6 @@ class My_Multi_Author_Admin {
 							'class'             => 'my-multi-authors-autocomplete',
 							'name'              => 'my_multi_authors[]',
 							'selected'          => $selected,
-							//'exclude'           => $primary_author_id,
 							'include_selected'  => true,
 							'show'              => 'display_name_with_login',
 							'show_option_none'  => __( 'Select an author', 'my-multi-author' ),
@@ -279,7 +278,7 @@ class My_Multi_Author_Admin {
 
 			// Make sure primary author is not in multi authors.
 			$primary_author_search = array_search( $primary_author_id, $new_my_multi_authors );
-			if ( $primary_author_search !== false ) {
+			if ( false !== $primary_author_search ) {
 				unset( $new_my_multi_authors[ $primary_author_search ] );
 			}
 		}
@@ -379,7 +378,7 @@ class My_Multi_Author_Admin {
 
 			// Print list of authors.
 			if ( ! empty( $authors ) ) {
-				foreach( $authors as $author_id ) {
+				foreach ( $authors as $author_id ) {
 
 					// Build the URL.
 					$url = add_query_arg( array(
