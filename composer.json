@@ -2,7 +2,7 @@
   "name": "bamadesigner/my-multi-author-plugin",
   "description": "Allows multiple authors to be attributed to a single post.",
   "type": "wordpress-plugin",
-  "license": "GPL2.0+",
+  "license": "GPL-2.0+",
   "authors": [
     {
       "name": "Rachel Cherry",
@@ -17,6 +17,6 @@
     "post-install-cmd": [
       "./vendor/bin/phpcs --config-set bin ./vendor/bin/phpcs",
       "./vendor/bin/phpcs --config-set installed_paths ../../wp-coding-standards/wpcs"
-    ]
-  }
-}
+    ],
+    "sniff": "vendor/bin/phpcs --runtime-set installed_paths vendor/wp-coding-standards/wpcs -p ./ --standard=WordPress-Core --report=full --extensions=php --ignore=*/vendor/*,*/node_modules/*"
+  }}

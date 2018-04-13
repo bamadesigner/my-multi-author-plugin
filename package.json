@@ -2,23 +2,32 @@
   "name": "my-multi-author-plugin",
   "version": "1.0.0",
   "author": "Rachel Cherry",
-  "license": "GPL-2.0",
   "description": "Allows multiple authors to be attributed to a single post.",
+  "license": "GPL-2.0+",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bamadesigner/my-multi-author-plugin.git"
   },
   "homepage": "https://github.com/bamadesigner/my-multi-author-plugin#readme",
+  "scripts": {
+    "install": "composer install",
+    "test": "composer sniff"
+  },
+  "bugs": {
+    "url": "https://github.com/bamadesigner/my-multi-author-plugin/issues"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
-    "gulp-minify": "^1.0.0",
-    "gulp-phpcs": "^2.0.0",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-merge-media-queries": "^0.2.1",
+    "gulp-notify": "^3.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-watch": "^4.3.11"
-  },
-  "dependencies": {
+    "gulp-shell": "^0.6.3",
+    "gulp-sort": "^2.0.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-wp-pot": "^2.0.6",
     "select2": "^4.0.3"
   }
 }
