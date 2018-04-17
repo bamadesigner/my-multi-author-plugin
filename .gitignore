@@ -1,2 +1,2 @@
-assets/js/*.min.js
-assets/css
+vendor
+assets/build

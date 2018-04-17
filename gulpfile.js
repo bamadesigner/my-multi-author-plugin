@@ -12,15 +12,15 @@ const wp_pot = require('gulp-wp-pot');
 
 // Define the source paths for each file type.
 const src = {
-	js: ['assets/js/my-multi-authors-admin.js'],
+	js: ['assets/src/js/**/*'],
 	php: ['**/*.php','!vendor/**','!node_modules/**'],
-	sass: ['assets/scss/*.scss']
+	sass: ['assets/src/scss/*.scss']
 };
 
 // Define the destination paths for each file type.
 const dest = {
-	js: './assets/js',
-	sass: './assets/css',
+	js: './assets/build/js',
+	sass: './assets/build/css',
 	translations: 'languages/my-multi-author.pot'
 };
 
@@ -109,4 +109,4 @@ gulp.task('watch', function() {
 });
 
 // Let's get this party started.
-gulp.task('default', ['autocomplete','compile','translate','test','watch']);
+gulp.task('default', ['autocomplete','compile','translate','test']);

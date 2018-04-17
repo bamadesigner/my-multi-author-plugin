@@ -112,17 +112,19 @@ class My_Multi_Author_Admin {
 			return;
 		}
 
+		$assets_dir = my_multi_author()->plugin_url . 'assets/build/';
+
 		// Register the select2 script.
-		wp_register_script( 'select2', my_multi_author()->plugin_url . 'assets/js/select2.min.js', array(), false, true );
+		wp_register_script( 'select2', $assets_dir . 'js/select2.min.js', array(), false, true );
 
 		// Enqueue our admin script.
-		wp_enqueue_script( 'my-multi-authors-admin', my_multi_author()->plugin_url . 'assets/js/my-multi-authors-admin.min.js', array( 'jquery', 'select2' ), false, true );
+		wp_enqueue_script( 'my-multi-authors-admin', $assets_dir . 'js/my-multi-authors-admin.min.js', array( 'jquery', 'select2' ), false, true );
 
 		// Register the select2 styles.
-		wp_register_style( 'select2', my_multi_author()->plugin_url . 'assets/css/select2.min.css' );
+		wp_register_style( 'select2', $assets_dir . 'css/select2.min.css' );
 
 		// Enqueue our admin styles.
-		wp_enqueue_style( 'my-multi-authors-admin', my_multi_author()->plugin_url . 'assets/css/my-multi-authors-admin.min.css', array( 'select2' ) );
+		wp_enqueue_style( 'my-multi-authors-admin', $assets_dir . 'css/my-multi-authors-admin.min.css', array( 'select2' ) );
 
 	}
 
