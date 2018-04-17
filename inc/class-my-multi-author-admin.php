@@ -6,60 +6,36 @@
  * @category    Class
  * @package     My Muli Author Plugin
  */
-class My_Multi_Author_Admin {
+final class My_Multi_Author_Admin {
 
 	/**
-	 * Holds the class instance.
-	 *
-	 * @since   1.0.0
-	 * @access  private
-	 * @var     My_Multi_Author_Admin
+	 * We don't need to instantiate this class.
 	 */
-	private static $instance;
+	protected function __construct() {}
 
 	/**
-	 * Returns the instance of this class.
-	 *
-	 * @since   1.0.0
-	 * @access  public
-	 * @return  My_Multi_Author_Admin
+	 * Registers all of our hooks and what not.
 	 */
-	public static function instance() {
-		if ( ! isset( self::$instance ) ) {
-			$class_name = __CLASS__;
-			self::$instance = new $class_name;
-		}
-		return self::$instance;
-	}
-
-	/**
-	 * Constructing the class object.
-	 *
-	 * The constructor is protected to prevent
-	 * creating a new instance from outside of this class.
-	 *
-	 * @since   1.0.0
-	 * @access  protected
-	 */
-	protected function __construct() {
+	public static function register() {
+		$plugin = new self();
 
 		// Remove default author meta box.
-		add_action( 'admin_init', array( $this, 'remove_author_meta_box' ) );
+		add_action( 'admin_init', array( $plugin, 'remove_author_meta_box' ) );
 
 		// Add meta boxes.
-		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10, 2 );
+		add_action( 'add_meta_boxes', array( $plugin, 'add_meta_boxes' ), 10, 2 );
 
 		// Add admin styles and scripts.
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $plugin, 'enqueue_scripts_styles' ) );
 
 		// Save meta box data.
-		add_action( 'save_post', array( $this, 'save_meta_box_data' ), 20, 3 );
+		add_action( 'save_post', array( $plugin, 'save_meta_box_data' ), 20, 3 );
 
 		// Add custom columns.
-		add_filter( 'manage_posts_columns', array( $this, 'add_posts_columns' ), 10, 2 );
+		add_filter( 'manage_posts_columns', array( $plugin, 'add_posts_columns' ), 10, 2 );
 
 		// Add multi authors to the author column.
-		add_action( 'manage_posts_custom_column', array( $this, 'populate_posts_columns' ), 10, 2 );
+		add_action( 'manage_posts_custom_column', array( $plugin, 'populate_posts_columns' ), 10, 2 );
 
 	}
 
@@ -399,20 +375,4 @@ class My_Multi_Author_Admin {
 		}
 	}
 }
-
-/**
- * Returns the instance of our main My_Multi_Author_Admin class.
- *
- * Will come in handy when we need to access the
- * class to retrieve data throughout the plugin
- * and other plugins and themes.
- *
- * @since   1.0.0
- * @return object - My_Multi_Author_Admin
- */
-function my_multi_author_admin() {
-	return My_Multi_Author_Admin::instance();
-}
-
-// Let's get this party started.
-my_multi_author_admin();
+My_Multi_Author_Admin::register();

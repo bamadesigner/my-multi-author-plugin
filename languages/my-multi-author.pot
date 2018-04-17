@@ -10,26 +10,26 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/bamadesigner/my-multi-author-plugin/issues\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: inc/my-multi-author-admin.php:90
+#: inc/class-my-multi-author-admin.php:66
 msgid "Author(s)"
 msgstr ""
 
-#: inc/my-multi-author-admin.php:157
+#: inc/class-my-multi-author-admin.php:133
 msgid "Set the primary author:"
 msgstr ""
 
-#: inc/my-multi-author-admin.php:170
+#: inc/class-my-multi-author-admin.php:146
 msgid "Define additional authors:"
 msgstr ""
 
-#: inc/my-multi-author-admin.php:185
+#: inc/class-my-multi-author-admin.php:161
 msgid "Define an additional author"
 msgstr ""
 
-#: inc/my-multi-author-admin.php:195
+#: inc/class-my-multi-author-admin.php:171
 msgid "Select an author"
 msgstr ""
 
-#: inc/my-multi-author-admin.php:211
+#: inc/class-my-multi-author-admin.php:187
 msgid "Add author"
 msgstr ""
