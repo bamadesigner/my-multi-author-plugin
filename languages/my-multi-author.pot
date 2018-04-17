@@ -14,22 +14,22 @@ msgstr ""
 msgid "Author(s)"
 msgstr ""
 
-#: inc/my-multi-author-admin.php:155
+#: inc/my-multi-author-admin.php:157
 msgid "Set the primary author:"
 msgstr ""
 
-#: inc/my-multi-author-admin.php:168
+#: inc/my-multi-author-admin.php:170
 msgid "Define additional authors:"
 msgstr ""
 
-#: inc/my-multi-author-admin.php:183
+#: inc/my-multi-author-admin.php:185
 msgid "Define an additional author"
 msgstr ""
 
-#: inc/my-multi-author-admin.php:193
+#: inc/my-multi-author-admin.php:195
 msgid "Select an author"
 msgstr ""
 
-#: inc/my-multi-author-admin.php:209
+#: inc/my-multi-author-admin.php:211
 msgid "Add author"
 msgstr ""

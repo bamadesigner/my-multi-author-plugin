@@ -112,7 +112,7 @@ class My_Multi_Author_Admin {
 			return;
 		}
 
-		$assets_dir = my_multi_author()->plugin_url . 'assets/build/';
+		$assets_dir = my_multi_author()->plugin_url . 'assets/';
 
 		// Register the select2 script.
 		wp_register_script( 'select2', $assets_dir . 'js/select2.min.js', array(), false, true );

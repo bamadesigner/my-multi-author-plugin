@@ -18,5 +18,5 @@
       "./vendor/bin/phpcs --config-set bin ./vendor/bin/phpcs",
       "./vendor/bin/phpcs --config-set installed_paths ../../wp-coding-standards/wpcs"
     ],
-    "sniff": "vendor/bin/phpcs --runtime-set installed_paths vendor/wp-coding-standards/wpcs -p ./ --standard=WordPress-Core --report=full --extensions=php --ignore=*/vendor/*,*/node_modules/*"
+    "sniff": "vendor/bin/phpcs --runtime-set installed_paths vendor/wp-coding-standards/wpcs -p ./ --standard=WordPress-Core --report=full --extensions=php --ignore=*/vendor/*,*/node_modules/*,*/my-multi-author-plugin/my-multi-author-plugin/*"
   }}

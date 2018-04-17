@@ -6,18 +6,28 @@ WordPress plugin that allows you to attribute multiple authors to single post.
 
 * `select2` is not accessible so will remove as soon as I find an accessible alternative.
 
+## Development
+
+If you want to use this plugin, you'll have to run `gulp` to compile the assets and build the production files.
+
+1. Run `npm install` (which will automatically run `composer install`. 
+2. Run `gulp build`.
+3. Deploy the `my-multi-author-plugin` created inside the directory. It has the files you need.
+4. Done.
+
+If you want to develop for the plugin:
+
+1. Create a git branch to work on.
+2. Run `npm install` (which will automatically run `composer install`.
+3. Run `gulp` every time you make changes.
+4. Commit changes.
+5. Create a pull request.
+
+*This repo uses Gulp 4. If you have issues updating to version 4, walking through [this guide](https://zzz.buzz/2016/11/19/gulp-4-0-upgrade-guide/) helped me out.*
+
 ## Setup
 
 **Right now, the plugin does not have a settings page so, if you'd like to use the multi author functionality on a post type other than "post", you will have to use the "my_multi_author_post_types" filter.**
-
-## Development
-
-If you want to use, or develop for, this plugin, you'll have to run gulp to compile the assets:
-
-1. Run `npm install` (which will automatically run `composer install`. 
-2. Run `gulp`.
-3. Deploy.
-4. Done.
 
 ## Hooks
 
