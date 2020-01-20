@@ -38,6 +38,11 @@ final class My_Multi_Author_Global {
 		// Filter the author display name to get all authors.
 		add_filter( 'the_author', array( $plugin, 'filter_the_author' ) );
 
+		// Filters the REST API response so multi authors are added to post queries.
+		$post_types = my_multi_author()->get_multi_author_post_types();
+		foreach ( $post_types as $post_type ) {
+			add_filter( 'rest_prepare_' . $post_type, [ $plugin, 'filter_rest_prepare_post' ], 10, 3 );
+		}
 	}
 
 	/**
@@ -49,6 +54,28 @@ final class My_Multi_Author_Global {
 	 */
 	public function textdomain() {
 		load_plugin_textdomain( 'my-multi-author', false, basename( dirname( dirname( __FILE__ ) ) ) . '/languages' );
+	}
+
+	/**
+	 * Add multi author list to REST API requests.
+	 *
+	 * @param $response - WP_REST_Response - The response object.
+	 * @param $post - WP_Post - Post object.
+	 * @param $request - WP_REST_Request - Request object.
+	 *
+	 * @return mixed
+	 */
+	public function filter_rest_prepare_post( $response, $post, $request ) {
+
+		$authors = my_multi_author()->get_authors( $post->ID );
+
+		if ( empty( $authors ) ) {
+			return $response;
+		}
+
+		$response->data['author'] = $authors;
+
+		return $response;
 	}
 
 	/**

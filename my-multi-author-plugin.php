@@ -154,7 +154,7 @@ final class My_Multi_Author {
 		}
 
 		if ( ! $post_id ) {
-			return false;
+			return [];
 		}
 
 		// Get our multi authors.
