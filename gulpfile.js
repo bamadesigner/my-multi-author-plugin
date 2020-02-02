@@ -2,7 +2,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const gulp = require('gulp');
 const mergeMediaQueries = require('gulp-merge-media-queries');
-const notify = require('gulp-notify');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const shell = require('gulp-shell');
@@ -71,11 +70,6 @@ gulp.task('sass', function(done) {
 			suffix: '.min'
 		}))
 		.pipe(gulp.dest(dest.sass))
-		.pipe(notify({
-			title: "My Multi Author",
-			message: 'My Multi Author SASS has been compiled',
-			onLast: true
-		}))
 		.on('end',done);
 });
 
@@ -89,26 +83,15 @@ gulp.task('js', function(done) {
 			suffix: '.min'
 		}))
 		.pipe(gulp.dest(dest.js))
-		.pipe(notify({
-			title: "My Multi Author",
-			message: 'My Multi Author JS has been compiled',
-			onLast: true
-		}))
 		.on('end',done);
 });
 
 // "Sniff" our PHP.
 gulp.task('sniff', function(done) {
-	// TODO: Clean up. Want to run command and show notify for sniff errors.
 	return gulp.src('my-multi-author-plugin.php', {read: false})
 		.pipe(shell(['composer sniff'], {
 			ignoreErrors: true,
 			verbose: false
-		}))
-		.pipe(notify({
-			title: "My Multi Author",
-			message: 'My Multi Author has been sniffed',
-			onLast: true
 		}))
 		.on('end',done);
 });
@@ -125,11 +108,6 @@ gulp.task('translate', function(done) {
 			headers: false
 		}))
 		.pipe(gulp.dest(dest.translations))
-		.pipe(notify({
-			title: "My Multi Author",
-			message: 'My Multi Author has been translated',
-			onLast: true
-		}))
 		.on('end',done);
 });
 
@@ -150,11 +128,6 @@ gulp.task('watch', function(done) {
 const bundlePlugin = (done) => {
 	return gulp.src(src.bundle)
 		.pipe(gulp.dest(dest.bundle))
-		.pipe(notify({
-			title: "My Multi Author",
-			message: 'My Multi Author has been bundled',
-			onLast: true
-		}))
 		.on('end',done);
 }
 
