@@ -4,7 +4,6 @@ const gulp = require('gulp');
 const mergeMediaQueries = require('gulp-merge-media-queries');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
-const shell = require('gulp-shell');
 const sort = require('gulp-sort');
 const uglify = require('gulp-uglify');
 const wp_pot = require('gulp-wp-pot');
@@ -86,16 +85,6 @@ gulp.task('js', function(done) {
 		.on('end',done);
 });
 
-// "Sniff" our PHP.
-gulp.task('sniff', function(done) {
-	return gulp.src('my-multi-author-plugin.php', {read: false})
-		.pipe(shell(['composer sniff'], {
-			ignoreErrors: true,
-			verbose: false
-		}))
-		.on('end',done);
-});
-
 // Create the .pot translation file.
 gulp.task('translate', function(done) {
 	return gulp.src(src.php)
@@ -111,16 +100,13 @@ gulp.task('translate', function(done) {
 		.on('end',done);
 });
 
-// Test our files.
-gulp.task('test',gulp.series('sniff'));
-
 // Compile all the things.
 gulp.task('compile',gulp.series('sass','js'));
 
 // I've got my eyes on you(r file changes).
 gulp.task('watch', function(done) {
 	gulp.watch(src.js, ['js']);
-	gulp.watch(src.php,['sniff','translate']);
+	gulp.watch(src.php,['translate']);
 	gulp.watch(src.sass,['sass']);
 	return done();
 });
@@ -135,4 +121,4 @@ const bundlePlugin = (done) => {
 gulp.task('bundle', gulp.series('autocomplete','compile','translate',bundlePlugin));
 
 // Let's get this party started.
-gulp.task('default', gulp.series('autocomplete','compile','translate','test'));
+gulp.task('default', gulp.series('autocomplete','compile','translate'));

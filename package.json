@@ -23,7 +23,6 @@
     "gulp-merge-media-queries": "^0.2.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-shell": "^0.6.3",
     "gulp-sort": "^2.0.0",
     "gulp-uglify": "^3.0.0",
     "gulp-wp-pot": "^2.0.6",
