@@ -38,10 +38,21 @@ final class My_Multi_Author_Global {
 		// Filter the author display name to get all authors.
 		add_filter( 'the_author', array( $plugin, 'filter_the_author' ) );
 
+		// Wait until other plugins have loaded to add some of our filters.
+		add_action( 'plugins_loaded', [ $plugin, 'add_filters' ] );
+
+	}
+
+	/**
+	 * We have to wait until other plugins
+	 * have loaded to add some of our filters.
+	 */
+	public function add_filters() {
+
 		// Filters the REST API response so multi authors are added to post queries.
 		$post_types = my_multi_author()->get_multi_author_post_types();
 		foreach ( $post_types as $post_type ) {
-			add_filter( 'rest_prepare_' . $post_type, [ $plugin, 'filter_rest_prepare_post' ], 10, 3 );
+			add_filter( 'rest_prepare_' . $post_type, [ $this, 'filter_rest_prepare_post' ], 10, 3 );
 		}
 	}
 
