@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The class that sets up
  * global plugin functionality.
@@ -24,19 +25,19 @@ final class My_Multi_Author_Global {
 		$plugin = new self();
 
 		// Load our textdomain.
-		add_action( 'plugins_loaded', array( $plugin, 'textdomain' ) );
+		add_action( 'plugins_loaded', [ $plugin, 'textdomain' ] );
 
 		// Filter the user query so it gets users who are multi authors.
-		add_action( 'pre_user_query', array( $plugin, 'filter_user_query_for_multi_authors' ) );
+		add_action( 'pre_user_query', [ $plugin, 'filter_user_query_for_multi_authors' ] );
 
 		// Filter the post query so it gets posts for multi authors.
-		add_filter( 'posts_clauses', array( $plugin, 'filter_post_query_for_multi_authors' ), 10, 2 );
+		add_filter( 'posts_clauses', [ $plugin, 'filter_post_query_for_multi_authors' ], 10, 2 );
 
 		// Set the post author data to the author being queried.
-		add_action( 'the_post', array( $plugin, 'correct_post_author_data' ), 10, 2 );
+		add_action( 'the_post', [ $plugin, 'correct_post_author_data' ], 10, 2 );
 
 		// Filter the author display name to get all authors.
-		add_filter( 'the_author', array( $plugin, 'filter_the_author' ) );
+		add_filter( 'the_author', [ $plugin, 'filter_the_author' ] );
 
 		// Wait until other plugins have loaded to add some of our filters.
 		add_action( 'plugins_loaded', [ $plugin, 'add_filters' ] );
@@ -59,8 +60,6 @@ final class My_Multi_Author_Global {
 	/**
 	 * Loads the plugin's text domain.
 	 *
-	 * @since   1.0.0
-	 * @access  public
 	 * @return  void
 	 */
 	public function textdomain() {
@@ -71,8 +70,8 @@ final class My_Multi_Author_Global {
 	 * Add multi author list to REST API requests.
 	 *
 	 * @param $response - WP_REST_Response - The response object.
-	 * @param $post - WP_Post - Post object.
-	 * @param $request - WP_REST_Request - Request object.
+	 * @param $post     - WP_Post - Post object.
+	 * @param $request  - WP_REST_Request - Request object.
 	 *
 	 * @return mixed
 	 */
@@ -96,8 +95,6 @@ final class My_Multi_Author_Global {
 	 * Fires after the WP_User_Query has been parsed, and before
 	 * the query is executed.
 	 *
-	 * @since   1.0.0
-	 * @access  public
 	 * @param   $query - WP_User_Query - The current WP_User_Query instance, passed by reference.
 	 */
 	public function filter_user_query_for_multi_authors( $query ) {
@@ -121,10 +118,9 @@ final class My_Multi_Author_Global {
 	 * make sure you retrieve posts where they
 	 * are assigned as a multi author.
 	 *
-	 * @since   1.0.0
-	 * @access  public
 	 * @param   $pieces - array - The pieces of the query.
-	 * @param   $query - WP_Query - The WP_Query instance (passed by reference).
+	 * @param   $query  - WP_Query - The WP_Query instance (passed by reference).
+	 *
 	 * @return  array - the filtered pieces.
 	 */
 	public function filter_post_query_for_multi_authors( $pieces, $query ) {
@@ -182,10 +178,9 @@ final class My_Multi_Author_Global {
 	 * to set the post author data to the
 	 * author being queried.
 	 *
-	 * @since   1.0.0
-	 * @access  public
-	 * @param   $post - WP_Post - The Post object (passed by reference).
+	 * @param   $post  - WP_Post - The Post object (passed by reference).
 	 * @param   $query - WP_Query - The current Query object (passed by reference).
+	 *
 	 * @return  void
 	 */
 	public function correct_post_author_data( $post, $query ) {
@@ -210,9 +205,8 @@ final class My_Multi_Author_Global {
 	/**
 	 * Filters the display name of the current post's author.
 	 *
-	 * @since   1.0.0
-	 * @access  public
 	 * @param   $author - string - The author's display name.
+	 *
 	 * @return  string - the filtered author name.
 	 */
 	public function filter_the_author( $author ) {
@@ -236,4 +230,5 @@ final class My_Multi_Author_Global {
 		return implode( ', ', $authors );
 	}
 }
+
 My_Multi_Author_Global::register();
